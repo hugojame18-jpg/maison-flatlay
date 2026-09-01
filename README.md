@@ -1,4 +1,8 @@
-# Maison Flatlay — version locale
+# Maison Flatlay
+
+**En ligne : https://hugojame18-jpg.github.io/maison-flatlay/**
+Dépôt : https://github.com/hugojame18-jpg/maison-flatlay
+
 
 Reproduction statique du site Lovable `all-your-wants.lovable.app`, sans dépendance ni abonnement.
 Tout est en HTML/CSS/JS pur : aucun build, aucune installation de paquets.
@@ -86,9 +90,19 @@ clé `promo` de chaque langue dans `i18n.js`, donc une modification se répercut
 - Le badge « Edit with Lovable » a été retiré.
 - Les liens « Acheter » pointent vers la même URL d'affiliation que l'original.
 
-## Héberger en ligne
+## Mettre le site en ligne à jour
 
-Le dossier est entièrement statique : il suffit de déposer `index.html`, `styles.css`,
-`data.js`, `i18n.js`, les `i18n-catalog*.js`, `app.js` et `images/` sur n'importe quel hébergeur gratuit
-(Netlify, Cloudflare Pages, GitHub Pages, Vercel). `server.js`, `assets_src/` et ce README
-ne sont pas nécessaires en production.
+Le site est hébergé sur **GitHub Pages**, branche `main`, racine du dépôt.
+Pour publier une modification :
+
+```bash
+git add -A && git commit -m "ma modification" && git push
+```
+
+GitHub reconstruit le site tout seul, en une à deux minutes.
+
+`assets_src/` (le zip décompressé) et `.claude/` sont exclus par `.gitignore` ;
+`server.js` n'est utilisé qu'en local, il ne gêne pas en ligne.
+
+Le site étant entièrement statique, il peut aussi être déposé tel quel sur Netlify,
+Cloudflare Pages ou Vercel.
