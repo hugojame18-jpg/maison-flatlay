@@ -360,16 +360,25 @@ function pageLook(slug) {
         <div class="detail-info">
           <p class="label-caps muted">${esc(T.detail.silhouette)} · ${esc(lookColor(look.color))}</p>
           <h1>${esc(look.name)}</h1>
-          <p class="price">${euro(look.price)}</p>
+          <p class="price js-detail-price">${euro(PRICES[3])}</p>
           <p class="desc">${esc(lookDesc(look))}</p>
 
           ${trustBar("box")}
 
-          ${sizeGroup(T.detail.sizeTop, SIZES_TOP, "haut", "M")}
-          ${sizeGroup(T.detail.sizeBottom, SIZES_TOP, "bas", "M")}
-          ${sizeGroup(T.detail.shoeSize, SIZES_SHOE, "chaussures", "42")}
+          <div class="piece-select">
+            <p class="label-caps muted">${esc(T.detail.selectPieces)}</p>
+            <div class="piece-btns">
+              <button type="button" class="piece-btn" data-piece="haut" aria-pressed="true">${esc(T.cart.top)}</button>
+              <button type="button" class="piece-btn" data-piece="bas" aria-pressed="true">${esc(T.cart.bottom)}</button>
+              <button type="button" class="piece-btn" data-piece="chaussures" aria-pressed="true">${esc(T.cart.shoes)}</button>
+            </div>
+          </div>
 
-          <a href="${BUY_URL}" target="_blank" rel="noopener noreferrer" class="btn-solid btn-block">${esc(T.detail.buyNow)}</a>
+          <div data-piece-group="haut">${sizeGroup(T.detail.sizeTop, SIZES_TOP, "haut", "M")}</div>
+          <div data-piece-group="bas">${sizeGroup(T.detail.sizeBottom, SIZES_TOP, "bas", "M")}</div>
+          <div data-piece-group="chaussures">${sizeGroup(T.detail.shoeSize, SIZES_SHOE, "chaussures", "42")}</div>
+
+          <a href="${BUY_URLS[3]}" target="_blank" rel="noopener noreferrer" class="btn-solid btn-block js-buy-link">${esc(T.detail.buyNow)}</a>
           <button type="button" class="btn-outline btn-block" data-add-to-cart>${esc(T.detail.addToCart)}</button>
           <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
           <a href="#/panier" class="view-cart label-caps">${esc(T.detail.viewCart)}</a>
@@ -405,7 +414,7 @@ function pageCart() {
       </div>`;
   }
 
-  const total = items.reduce((sum, i) => sum + BY_SLUG[i.slug].price, 0);
+  const total = items.reduce((sum, i) => sum + (i.price || BY_SLUG[i.slug].price), 0);
 
   return `
     <div class="wrap cart">
@@ -419,10 +428,14 @@ function pageCart() {
               <img src="${img(look.images[0])}" alt="${esc(look.name)}" />
               <div>
                 <h3>${esc(look.name)}</h3>
-                <p class="opts label-caps">${esc(T.cart.top)} ${esc(item.haut)} · ${esc(T.cart.bottom)} ${esc(item.bas)} · ${esc(T.cart.shoes)} ${esc(item.chaussures)}</p>
+                <p class="opts label-caps">${[
+                  item.haut ? `${esc(T.cart.top)} ${esc(item.haut)}` : "",
+                  item.bas ? `${esc(T.cart.bottom)} ${esc(item.bas)}` : "",
+                  item.chaussures ? `${esc(T.cart.shoes)} ${esc(item.chaussures)}` : "",
+                ].filter(Boolean).join(" · ")}</p>
               </div>
               <div class="right">
-                <span>${euro(look.price)}</span>
+                <span>${euro(item.price || look.price)}</span>
                 <button type="button" class="remove label-caps" data-remove="${index}">${esc(T.cart.remove)}</button>
               </div>
             </div>`;
@@ -436,7 +449,7 @@ function pageCart() {
       <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
       ${trustBar("box")}
       <div class="cart-actions">
-        <a href="${BUY_URL}" target="_blank" rel="noopener noreferrer" class="btn-solid">${esc(T.cart.order)}</a>
+        <a href="${items[0] && items[0].buyUrl ? items[0].buyUrl : BUY_URL}" target="_blank" rel="noopener noreferrer" class="btn-solid">${esc(T.cart.order)}</a>
         <a href="#/looks" class="btn-outline">${esc(T.cart.keepShopping)}</a>
       </div>
     </div>`;
@@ -487,6 +500,25 @@ app.addEventListener("click", (event) => {
     return;
   }
 
+  // toggle pièce (haut / bas / chaussures)
+  const pieceBtn = event.target.closest("[data-piece]");
+  if (pieceBtn) {
+    const root = app.querySelector(".detail");
+    const allBtns = Array.from(root.querySelectorAll("[data-piece]"));
+    const wasPressed = pieceBtn.getAttribute("aria-pressed") === "true";
+    const pressedCount = allBtns.filter((b) => b.getAttribute("aria-pressed") === "true").length;
+    if (wasPressed && pressedCount === 1) return; // au moins une pièce obligatoire
+    pieceBtn.setAttribute("aria-pressed", String(!wasPressed));
+    const group = root.querySelector(`[data-piece-group="${pieceBtn.dataset.piece}"]`);
+    if (group) group.hidden = wasPressed;
+    const n = allBtns.filter((b) => b.getAttribute("aria-pressed") === "true").length;
+    const priceEl = root.querySelector(".js-detail-price");
+    if (priceEl) priceEl.textContent = euro(PRICES[n]);
+    const buyLink = root.querySelector(".js-buy-link");
+    if (buyLink) buyLink.href = BUY_URLS[n];
+    return;
+  }
+
   // sélection de taille
   const sizeBtn = event.target.closest("[data-size-group] button");
   if (sizeBtn) {
@@ -498,20 +530,23 @@ app.addEventListener("click", (event) => {
   // ajout au panier
   if (event.target.closest("[data-add-to-cart]")) {
     const root = app.querySelector(".detail");
+    const allBtns = Array.from(root.querySelectorAll("[data-piece]"));
+    const n = allBtns.filter((b) => b.getAttribute("aria-pressed") === "true").length;
     const pick = (name) => {
+      const group = root.querySelector(`[data-piece-group="${name}"]`);
+      if (group && group.hidden) return null;
       const el = root.querySelector(`[data-size-group="${name}"] button[aria-pressed="true"]`);
       return el ? el.dataset.value : null;
     };
-    // Une silhouette par commande : la nouvelle remplace celle déjà au panier.
     const previous = readCart()[0];
-    writeCart([
-      {
-        slug: root.dataset.slug,
-        haut: pick("haut"),
-        bas: pick("bas"),
-        chaussures: pick("chaussures"),
-      },
-    ]);
+    writeCart([{
+      slug: root.dataset.slug,
+      haut: pick("haut"),
+      bas: pick("bas"),
+      chaussures: pick("chaussures"),
+      price: PRICES[n] || 79.99,
+      buyUrl: BUY_URLS[n] || BUY_URL,
+    }]);
     renderChrome();
     toast(previous ? t().detail.replaced : t().detail.added);
     return;

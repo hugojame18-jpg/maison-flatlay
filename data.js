@@ -1056,3 +1056,9 @@ const LOOKS = [
 const SIZES_TOP = ["XS","S","M","L","XL"];
 const SIZES_SHOE = ["38","39","40","41","42","43","44","45","46"];
 const BUY_URL = "https://t.trklinkx.com/click?pid=4784&offer_id=12541&sub3=lu";
+const BUY_URLS = {
+  1: "https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=lu",
+  2: "https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=lu",
+  3: "https://t.trklinkx.com/click?pid=4784&offer_id=12541&sub3=lu",
+};
+const PRICES = { 1: 20, 2: 49.99, 3: 79.99 };

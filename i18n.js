@@ -88,6 +88,7 @@ const UI = {
       added: "Silhouette ajoutée au panier",
       replaced: "Silhouette remplacée — une seule par commande",
       oneMax: "Une silhouette par commande",
+      selectPieces: "Personnalisez votre commande",
     },
 
     cart: {
@@ -194,6 +195,7 @@ const UI = {
       added: "Silhouette added to cart",
       replaced: "Silhouette replaced — one per order",
       oneMax: "One silhouette per order",
+      selectPieces: "Customise your order",
     },
 
     cart: {
@@ -300,6 +302,7 @@ const UI = {
       added: "Silueta añadida a la cesta",
       replaced: "Silueta sustituida — una por pedido",
       oneMax: "Una silueta por pedido",
+      selectPieces: "Personaliza tu pedido",
     },
 
     cart: {
@@ -406,6 +409,7 @@ const UI = {
       added: "Silhouette in den Warenkorb gelegt",
       replaced: "Silhouette ersetzt — eine pro Bestellung",
       oneMax: "Eine Silhouette pro Bestellung",
+      selectPieces: "Bestellung anpassen",
     },
 
     cart: {
@@ -517,6 +521,7 @@ const UI = {
       added: "Silhouette aggiunta al carrello",
       replaced: "Silhouette sostituita — una per ordine",
       oneMax: "Una silhouette per ordine",
+      selectPieces: "Personalizza il tuo ordine",
     },
 
     cart: {
