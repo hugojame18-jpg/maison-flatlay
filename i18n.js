@@ -17,6 +17,11 @@ const UI = {
     nav: { collection: "Collection", atelier: "Atelier", cart: "Panier" },
     langLabel: "Langue",
 
+    meta: {
+      title: "Maison Flatlay — Silhouettes complètes prêtes à porter",
+      description: "93 silhouettes composées à plat. L'ensemble complet à 79,99 €, deux pièces à 49,99 €, une seule à 20 €. Livraison offerte en 7 jours, retours sous 14 jours.",
+    },
+
     promo: {
       shipping: { title: "Livraison offerte", text: "Sur toutes les commandes, sans minimum d'achat." },
       delivery: { title: "Livré en 7 jours", text: "Expédié sous 48 h, chez vous en une semaine." },
@@ -24,14 +29,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Collection Automne — 64 silhouettes",
+      eyebrow: "Collection Automne — 93 silhouettes",
       title1: "Le look entier,",
       title2: "pas juste la pièce.",
       lede: "Chaque silhouette est composée à plat, testée, puis proposée complète : haut, bas, chaussures et accessoires. Vous choisissez une taille, nous envoyons l'ensemble.",
       ctaCollection: "Voir la collection",
       ctaAtelier: "L'atelier",
       featured: "En vedette",
-      sectionTitle: "Les 64 silhouettes",
+      sectionTitle: "Les 93 silhouettes",
       seeAll: "Tout voir →",
     },
 
@@ -52,7 +57,7 @@ const UI = {
 
     looks: {
       eyebrow: "Collection complète",
-      title: "Soixante-quatre silhouettes, en ensemble ou à la pièce",
+      title: "Quatre-vingt-treize silhouettes, en ensemble ou à la pièce",
       lede: "Choisissez votre silhouette, puis le haut, le bas, les chaussures — ou l'ensemble complet.",
     },
 
@@ -130,6 +135,11 @@ const UI = {
     nav: { collection: "Collection", atelier: "Atelier", cart: "Cart" },
     langLabel: "Language",
 
+    meta: {
+      title: "Maison Flatlay — Complete outfits, ready to wear",
+      description: "93 silhouettes laid out flat. The full outfit at €79.99, two pieces at €49.99, a single piece at €20. Free shipping in 7 days, 14-day returns.",
+    },
+
     promo: {
       shipping: { title: "Free shipping", text: "On every order, no minimum spend." },
       delivery: { title: "Delivered in 7 days", text: "Dispatched within 48 h, with you in a week." },
@@ -137,14 +147,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Autumn Collection — 64 silhouettes",
+      eyebrow: "Autumn Collection — 93 silhouettes",
       title1: "The whole look,",
       title2: "not just the piece.",
       lede: "Every silhouette is laid out flat, tested, then offered complete: top, bottom, shoes and accessories. You pick a size, we ship the entire outfit.",
       ctaCollection: "View the collection",
       ctaAtelier: "The atelier",
       featured: "Featured",
-      sectionTitle: "The 64 silhouettes",
+      sectionTitle: "The 93 silhouettes",
       seeAll: "See all →",
     },
 
@@ -159,7 +169,7 @@ const UI = {
 
     looks: {
       eyebrow: "Full collection",
-      title: "Sixty-four silhouettes, as a full set or by the piece",
+      title: "Ninety-three silhouettes, as a full set or by the piece",
       lede: "Pick your silhouette, then the top, the bottom, the shoes — or the complete outfit.",
     },
 
@@ -237,6 +247,11 @@ const UI = {
     nav: { collection: "Colección", atelier: "Taller", cart: "Cesta" },
     langLabel: "Idioma",
 
+    meta: {
+      title: "Maison Flatlay — Siluetas completas listas para llevar",
+      description: "93 siluetas compuestas en plano. El conjunto completo por 79,99 €, dos piezas por 49,99 €, una sola por 20 €. Envío gratis en 7 días, devoluciones en 14 días.",
+    },
+
     promo: {
       shipping: { title: "Envío gratuito", text: "En todos los pedidos, sin importe mínimo." },
       delivery: { title: "Entrega en 7 días", text: "Enviado en 48 h, en tu casa en una semana." },
@@ -244,14 +259,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Colección Otoño — 64 siluetas",
+      eyebrow: "Colección Otoño — 93 siluetas",
       title1: "El look entero,",
       title2: "no solo la prenda.",
       lede: "Cada silueta se compone en plano, se prueba y luego se ofrece completa: parte de arriba, parte de abajo, calzado y accesorios. Tú eliges una talla, nosotros enviamos el conjunto.",
       ctaCollection: "Ver la colección",
       ctaAtelier: "El taller",
       featured: "Destacado",
-      sectionTitle: "Las 64 siluetas",
+      sectionTitle: "Las 93 siluetas",
       seeAll: "Ver todo →",
     },
 
@@ -266,7 +281,7 @@ const UI = {
 
     looks: {
       eyebrow: "Colección completa",
-      title: "Sesenta y cuatro siluetas, en conjunto o por piezas",
+      title: "Noventa y tres siluetas, en conjunto o por piezas",
       lede: "Elige tu silueta y luego la parte de arriba, la de abajo, el calzado — o el conjunto completo.",
     },
 
@@ -344,6 +359,11 @@ const UI = {
     nav: { collection: "Kollektion", atelier: "Atelier", cart: "Warenkorb" },
     langLabel: "Sprache",
 
+    meta: {
+      title: "Maison Flatlay — Komplette Outfits, sofort tragbar",
+      description: "93 flach gelegte Silhouetten. Das komplette Outfit für 79,99 €, zwei Teile für 49,99 €, ein Einzelteil für 20 €. Kostenloser Versand in 7 Tagen, 14 Tage Rückgabe.",
+    },
+
     promo: {
       shipping: { title: "Kostenloser Versand", text: "Bei jeder Bestellung, ohne Mindestbestellwert." },
       delivery: { title: "Lieferung in 7 Tagen", text: "Versand innerhalb von 48 h, in einer Woche bei Ihnen." },
@@ -351,14 +371,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Herbstkollektion — 64 Silhouetten",
+      eyebrow: "Herbstkollektion — 93 Silhouetten",
       title1: "Der ganze Look,",
       title2: "nicht nur das Teil.",
       lede: "Jede Silhouette wird flach gelegt, geprüft und dann komplett angeboten: Oberteil, Hose, Schuhe und Accessoires. Sie wählen eine Größe, wir schicken das gesamte Outfit.",
       ctaCollection: "Kollektion ansehen",
       ctaAtelier: "Das Atelier",
       featured: "Im Fokus",
-      sectionTitle: "Die 64 Silhouetten",
+      sectionTitle: "Die 93 Silhouetten",
       seeAll: "Alle ansehen →",
     },
 
@@ -373,7 +393,7 @@ const UI = {
 
     looks: {
       eyebrow: "Gesamte Kollektion",
-      title: "Vierundsechzig Silhouetten, komplett oder einzeln",
+      title: "Dreiundneunzig Silhouetten, komplett oder einzeln",
       lede: "Wählen Sie Ihre Silhouette, dann Oberteil, Hose, Schuhe — oder das komplette Outfit.",
     },
 
@@ -456,6 +476,11 @@ const UI = {
     nav: { collection: "Collezione", atelier: "Atelier", cart: "Carrello" },
     langLabel: "Lingua",
 
+    meta: {
+      title: "Maison Flatlay — Silhouette complete, pronte da indossare",
+      description: "93 silhouette composte in piano. L'insieme completo a 79,99 €, due capi a 49,99 €, un solo capo a 20 €. Spedizione gratuita in 7 giorni, resi entro 14 giorni.",
+    },
+
     promo: {
       shipping: { title: "Spedizione gratuita", text: "Su tutti gli ordini, senza minimo di spesa." },
       delivery: { title: "Consegna in 7 giorni", text: "Spedito entro 48 h, da te in una settimana." },
@@ -463,14 +488,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Collezione Autunno — 64 silhouette",
+      eyebrow: "Collezione Autunno — 93 silhouette",
       title1: "Il look intero,",
       title2: "non solo il capo.",
       lede: "Ogni silhouette viene composta in piano, provata e poi proposta completa: sopra, sotto, scarpe e accessori. Tu scegli una taglia, noi spediamo l'insieme.",
       ctaCollection: "Vedi la collezione",
       ctaAtelier: "L'atelier",
       featured: "In evidenza",
-      sectionTitle: "Le 64 silhouette",
+      sectionTitle: "Le 93 silhouette",
       seeAll: "Vedi tutto →",
     },
 
@@ -485,7 +510,7 @@ const UI = {
 
     looks: {
       eyebrow: "Collezione completa",
-      title: "Sessantaquattro silhouette, complete o singole",
+      title: "Novantatré silhouette, complete o singole",
       lede: "Scegli la tua silhouette, poi il sopra, il sotto, le scarpe — o l'insieme completo.",
     },
 

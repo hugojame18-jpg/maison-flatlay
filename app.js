@@ -138,10 +138,30 @@ function toast(message) {
 
 /* ---------------- chrome (barre, nav, pied de page) ---------------- */
 
+/* Écrit une balise meta, en la créant si la page ne la porte pas encore. */
+function setMeta(selector, content) {
+  let el = document.head.querySelector(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    const m = selector.match(/\[(name|property)="([^"]+)"\]/);
+    if (!m) return;
+    el.setAttribute(m[1], m[2]);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
 function renderChrome() {
   const T = t();
   document.documentElement.lang = T.htmlLang;
   announceEl.textContent = T.announce;
+
+  /* Titre et métadonnées suivent la langue affichée. */
+  document.title = T.meta.title;
+  setMeta('meta[name="description"]', T.meta.description);
+  setMeta('meta[property="og:title"]', T.meta.title);
+  setMeta('meta[property="og:description"]', T.meta.description);
+  setMeta('meta[property="og:locale"]', T.htmlLang);
 
   navEl.innerHTML = `
     <a href="#/looks" class="label-caps link">${esc(T.nav.collection)}</a>
