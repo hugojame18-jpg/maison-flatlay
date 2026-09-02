@@ -108,10 +108,13 @@ const img = (file) => "images/" + file;
 
 const CART_KEY = "maison-flatlay-cart";
 
+/* Une seule silhouette par commande : le panier ne contient jamais plus d'une ligne. */
+const CART_MAX = 1;
+
 function readCart() {
   try {
     const raw = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-    return Array.isArray(raw) ? raw.filter((i) => BY_SLUG[i.slug]) : [];
+    return Array.isArray(raw) ? raw.filter((i) => BY_SLUG[i.slug]).slice(0, CART_MAX) : [];
   } catch {
     return [];
   }
@@ -368,6 +371,7 @@ function pageLook(slug) {
 
           <a href="${BUY_URL}" target="_blank" rel="noopener noreferrer" class="btn-solid btn-block">${esc(T.detail.buyNow)}</a>
           <button type="button" class="btn-outline btn-block" data-add-to-cart>${esc(T.detail.addToCart)}</button>
+          <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
           <a href="#/panier" class="view-cart label-caps">${esc(T.detail.viewCart)}</a>
 
           <div class="pieces">
@@ -429,6 +433,7 @@ function pageCart() {
         <span class="label-caps muted">${esc(T.cart.total)}</span>
         <span class="sum">${euro(total)}</span>
       </div>
+      <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
       ${trustBar("box")}
       <div class="cart-actions">
         <a href="${BUY_URL}" target="_blank" rel="noopener noreferrer" class="btn-solid">${esc(T.cart.order)}</a>
@@ -497,16 +502,18 @@ app.addEventListener("click", (event) => {
       const el = root.querySelector(`[data-size-group="${name}"] button[aria-pressed="true"]`);
       return el ? el.dataset.value : null;
     };
-    const items = readCart();
-    items.push({
-      slug: root.dataset.slug,
-      haut: pick("haut"),
-      bas: pick("bas"),
-      chaussures: pick("chaussures"),
-    });
-    writeCart(items);
+    // Une silhouette par commande : la nouvelle remplace celle déjà au panier.
+    const previous = readCart()[0];
+    writeCart([
+      {
+        slug: root.dataset.slug,
+        haut: pick("haut"),
+        bas: pick("bas"),
+        chaussures: pick("chaussures"),
+      },
+    ]);
     renderChrome();
-    toast(t().detail.added);
+    toast(previous ? t().detail.replaced : t().detail.added);
     return;
   }
 

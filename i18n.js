@@ -86,6 +86,8 @@ const UI = {
       shipping: "Livraison gratuite · Livré en 7 jours · Retours sous 14 jours",
       related: "Autres silhouettes",
       added: "Silhouette ajoutée au panier",
+      replaced: "Silhouette remplacée — une seule par commande",
+      oneMax: "Une silhouette par commande",
     },
 
     cart: {
@@ -190,6 +192,8 @@ const UI = {
       shipping: "Free shipping · Delivered in 7 days · 14-day returns",
       related: "Other silhouettes",
       added: "Silhouette added to cart",
+      replaced: "Silhouette replaced — one per order",
+      oneMax: "One silhouette per order",
     },
 
     cart: {
@@ -294,6 +298,8 @@ const UI = {
       shipping: "Envío gratuito · Entrega en 7 días · Devoluciones en 14 días",
       related: "Otras siluetas",
       added: "Silueta añadida a la cesta",
+      replaced: "Silueta sustituida — una por pedido",
+      oneMax: "Una silueta por pedido",
     },
 
     cart: {
@@ -398,6 +404,8 @@ const UI = {
       shipping: "Kostenloser Versand · Lieferung in 7 Tagen · 14 Tage Rückgabe",
       related: "Weitere Silhouetten",
       added: "Silhouette in den Warenkorb gelegt",
+      replaced: "Silhouette ersetzt — eine pro Bestellung",
+      oneMax: "Eine Silhouette pro Bestellung",
     },
 
     cart: {
@@ -507,6 +515,8 @@ const UI = {
       shipping: "Spedizione gratuita · Consegna in 7 giorni · Resi entro 14 giorni",
       related: "Altre silhouette",
       added: "Silhouette aggiunta al carrello",
+      replaced: "Silhouette sostituita — una per ordine",
+      oneMax: "Una silhouette per ordine",
     },
 
     cart: {

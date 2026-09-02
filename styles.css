@@ -253,6 +253,8 @@ button { font: inherit; color: inherit; background: none; cursor: pointer; }
 }
 .detail-info .btn-solid.btn-block { margin-top: 2rem; }
 .detail-info .btn-outline.btn-block { margin-top: 0.75rem; }
+.one-max { margin-top: 0.75rem; text-align: center; color: var(--muted-foreground); }
+.cart .one-max { margin-top: 1rem; text-align: right; }
 .view-cart { margin-top: 0.75rem; display: block; text-align: center; color: var(--muted-foreground); }
 .view-cart:hover { color: var(--foreground); }
 .pieces { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
