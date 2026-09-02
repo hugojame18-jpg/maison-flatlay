@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Flatlay">
+  <title>Flatlay</title>
+  <!-- Un « F » composé à plat : le haut, le bas, et la pièce qui complète le look. -->
+  <g fill="currentColor">
+    <rect x="12" y="12" width="40" height="9" rx="1.5" />
+    <rect x="12" y="12" width="9" height="40" rx="1.5" />
+    <rect x="12" y="28" width="28" height="9" rx="1.5" />
+    <circle cx="46.5" cy="46.5" r="5.5" />
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" width="340" height="64" role="img" aria-label="Maison Flatlay">
+  <title>Maison Flatlay</title>
+  <!-- Verrouillage horizontal : marque + signature typographique.
+       Le texte utilise Instrument Serif ; prévoir une version vectorisée
+       (texte converti en courbes) pour l'impression ou un usage hors web. -->
+  <g fill="currentColor">
+    <rect x="12" y="12" width="40" height="9" rx="1.5" />
+    <rect x="12" y="12" width="9" height="40" rx="1.5" />
+    <rect x="12" y="28" width="28" height="9" rx="1.5" />
+    <circle cx="46.5" cy="46.5" r="5.5" />
+  </g>
+  <text x="76" y="30" fill="currentColor"
+        font-family="'Instrument Serif', ui-serif, Georgia, serif"
+        font-size="26" letter-spacing="-0.5">Maison</text>
+  <text x="76" y="55" fill="currentColor"
+        font-family="'Instrument Serif', ui-serif, Georgia, serif"
+        font-size="26" letter-spacing="-0.5">Flatlay</text>
+</svg>

@@ -96,7 +96,8 @@ const euro = (n) =>
   new Intl.NumberFormat(LOCALES[lang] || "fr-FR", {
     style: "currency",
     currency: "EUR",
-    maximumFractionDigits: 0,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(n);
 
 const esc = (s) =>

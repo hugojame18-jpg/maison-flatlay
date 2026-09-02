@@ -24,14 +24,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Collection Automne — 8 silhouettes",
+      eyebrow: "Collection Automne — 64 silhouettes",
       title1: "Le look entier,",
       title2: "pas juste la pièce.",
       lede: "Chaque silhouette est composée à plat, testée, puis proposée complète : haut, bas, chaussures et accessoires. Vous choisissez une taille, nous envoyons l'ensemble.",
       ctaCollection: "Voir la collection",
       ctaAtelier: "L'atelier",
       featured: "En vedette",
-      sectionTitle: "Les 8 silhouettes",
+      sectionTitle: "Les 64 silhouettes",
       seeAll: "Tout voir →",
     },
 
@@ -52,18 +52,18 @@ const UI = {
 
     looks: {
       eyebrow: "Collection complète",
-      title: "Huit silhouettes, chacune vendue en ensemble",
-      lede: "Faites défiler chaque look pour découvrir toutes ses vues avant de choisir votre taille.",
+      title: "Soixante-quatre silhouettes, en ensemble ou à la pièce",
+      lede: "Choisissez votre silhouette, puis le haut, le bas, les chaussures — ou l'ensemble complet.",
     },
 
     atelier: {
       eyebrow: "L'atelier",
       title: "Une silhouette n'est réussie que lorsqu'on ne peut plus rien enlever",
-      lede: "Maison Flatlay ne vend pas des pièces isolées : nous composons des ensembles entiers, du haut aux chaussures, et nous les documentons vue par vue pour que rien ne soit une surprise à l'ouverture du colis.",
+      lede: "Maison Flatlay compose des ensembles entiers, du haut aux chaussures, et les documente pièce par pièce. Prenez la silhouette complète, ou seulement ce qui vous manque.",
       steps: [
         { title: "Sélection", text: "Nous chinons les pièces une à une : matières, coupes, patine, provenance." },
         { title: "Mise à plat", text: "L'ensemble est composé au sol jusqu'à ce que les proportions tombent juste." },
-        { title: "Photographie", text: "Sept vues par silhouette : d'ensemble, détails, textures, accessoires." },
+        { title: "Photographie", text: "Chaque silhouette est photographiée à plat : coupe, matières, accessoires." },
         { title: "Expédition", text: "Chaque pièce est vérifiée, mesurée, emballée et livrée gratuitement sous 7 jours." },
       ],
       ctaTitle: "Prêt à choisir votre silhouette ?",
@@ -137,14 +137,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Autumn Collection — 8 silhouettes",
+      eyebrow: "Autumn Collection — 64 silhouettes",
       title1: "The whole look,",
       title2: "not just the piece.",
       lede: "Every silhouette is laid out flat, tested, then offered complete: top, bottom, shoes and accessories. You pick a size, we ship the entire outfit.",
       ctaCollection: "View the collection",
       ctaAtelier: "The atelier",
       featured: "Featured",
-      sectionTitle: "The 8 silhouettes",
+      sectionTitle: "The 64 silhouettes",
       seeAll: "See all →",
     },
 
@@ -159,18 +159,18 @@ const UI = {
 
     looks: {
       eyebrow: "Full collection",
-      title: "Eight silhouettes, each sold as a complete outfit",
-      lede: "Browse each look to see every view before choosing your size.",
+      title: "Sixty-four silhouettes, as a full set or by the piece",
+      lede: "Pick your silhouette, then the top, the bottom, the shoes — or the complete outfit.",
     },
 
     atelier: {
       eyebrow: "The atelier",
       title: "A silhouette is right only when nothing more can be taken away",
-      lede: "Maison Flatlay does not sell single pieces: we compose entire outfits, from top to shoes, and document them view by view so nothing is a surprise when the parcel is opened.",
+      lede: "Maison Flatlay composes entire outfits, from top to shoes, and documents them piece by piece. Take the complete silhouette, or only what you are missing.",
       steps: [
         { title: "Selection", text: "We source each piece one by one: fabric, cut, patina, provenance." },
         { title: "Flat lay", text: "The outfit is laid out on the floor until the proportions fall into place." },
-        { title: "Photography", text: "Seven views per silhouette: full outfit, details, textures, accessories." },
+        { title: "Photography", text: "Each silhouette is shot flat: cut, materials, accessories." },
         { title: "Shipping", text: "Every piece is checked, measured, packed and delivered free within 7 days." },
       ],
       ctaTitle: "Ready to choose your silhouette?",
@@ -244,14 +244,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Colección Otoño — 8 siluetas",
+      eyebrow: "Colección Otoño — 64 siluetas",
       title1: "El look entero,",
       title2: "no solo la prenda.",
       lede: "Cada silueta se compone en plano, se prueba y luego se ofrece completa: parte de arriba, parte de abajo, calzado y accesorios. Tú eliges una talla, nosotros enviamos el conjunto.",
       ctaCollection: "Ver la colección",
       ctaAtelier: "El taller",
       featured: "Destacado",
-      sectionTitle: "Las 8 siluetas",
+      sectionTitle: "Las 64 siluetas",
       seeAll: "Ver todo →",
     },
 
@@ -266,18 +266,18 @@ const UI = {
 
     looks: {
       eyebrow: "Colección completa",
-      title: "Ocho siluetas, cada una vendida como conjunto",
-      lede: "Recorre cada look para ver todas sus vistas antes de elegir tu talla.",
+      title: "Sesenta y cuatro siluetas, en conjunto o por piezas",
+      lede: "Elige tu silueta y luego la parte de arriba, la de abajo, el calzado — o el conjunto completo.",
     },
 
     atelier: {
       eyebrow: "El taller",
       title: "Una silueta solo está lograda cuando ya no se le puede quitar nada",
-      lede: "Maison Flatlay no vende prendas sueltas: componemos conjuntos enteros, de la parte de arriba al calzado, y los documentamos vista por vista para que nada sorprenda al abrir el paquete.",
+      lede: "Maison Flatlay compone conjuntos enteros, de la parte de arriba al calzado, y los documenta pieza por pieza. Llévate la silueta completa, o solo lo que te falte.",
       steps: [
         { title: "Selección", text: "Buscamos las prendas una a una: materiales, cortes, pátina, procedencia." },
         { title: "Puesta en plano", text: "El conjunto se compone en el suelo hasta que las proporciones encajan." },
-        { title: "Fotografía", text: "Siete vistas por silueta: conjunto, detalles, texturas, accesorios." },
+        { title: "Fotografía", text: "Cada silueta se fotografía en plano: corte, materiales, accesorios." },
         { title: "Envío", text: "Cada prenda se revisa, se mide, se embala y se entrega gratis en 7 días." },
       ],
       ctaTitle: "¿Listo para elegir tu silueta?",
@@ -351,14 +351,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Herbstkollektion — 8 Silhouetten",
+      eyebrow: "Herbstkollektion — 64 Silhouetten",
       title1: "Der ganze Look,",
       title2: "nicht nur das Teil.",
       lede: "Jede Silhouette wird flach gelegt, geprüft und dann komplett angeboten: Oberteil, Hose, Schuhe und Accessoires. Sie wählen eine Größe, wir schicken das gesamte Outfit.",
       ctaCollection: "Kollektion ansehen",
       ctaAtelier: "Das Atelier",
       featured: "Im Fokus",
-      sectionTitle: "Die 8 Silhouetten",
+      sectionTitle: "Die 64 Silhouetten",
       seeAll: "Alle ansehen →",
     },
 
@@ -373,18 +373,18 @@ const UI = {
 
     looks: {
       eyebrow: "Gesamte Kollektion",
-      title: "Acht Silhouetten, jede als komplettes Outfit",
-      lede: "Sehen Sie sich jeden Look an, bevor Sie Ihre Größe wählen.",
+      title: "Vierundsechzig Silhouetten, komplett oder einzeln",
+      lede: "Wählen Sie Ihre Silhouette, dann Oberteil, Hose, Schuhe — oder das komplette Outfit.",
     },
 
     atelier: {
       eyebrow: "Das Atelier",
       title: "Eine Silhouette ist erst gelungen, wenn man nichts mehr weglassen kann",
-      lede: "Maison Flatlay verkauft keine Einzelteile: Wir stellen ganze Outfits zusammen, vom Oberteil bis zu den Schuhen, und dokumentieren sie Ansicht für Ansicht, damit beim Öffnen des Pakets nichts überrascht.",
+      lede: "Maison Flatlay stellt ganze Outfits zusammen, vom Oberteil bis zu den Schuhen, und dokumentiert sie Stück für Stück. Nehmen Sie die komplette Silhouette oder nur das, was Ihnen fehlt.",
       steps: [
         { title: "Auswahl", text: "Wir suchen jedes Teil einzeln aus: Material, Schnitt, Patina, Herkunft." },
         { title: "Flatlay", text: "Das Outfit wird am Boden gelegt, bis die Proportionen stimmen." },
-        { title: "Fotografie", text: "Sieben Ansichten pro Silhouette: Gesamtbild, Details, Texturen, Accessoires." },
+        { title: "Fotografie", text: "Jede Silhouette wird flach fotografiert: Schnitt, Materialien, Accessoires." },
         { title: "Versand", text: "Jedes Teil wird geprüft, gemessen, verpackt und kostenlos in 7 Tagen geliefert." },
       ],
       ctaTitle: "Bereit für Ihre Silhouette?",
@@ -463,14 +463,14 @@ const UI = {
     },
 
     home: {
-      eyebrow: "Collezione Autunno — 8 silhouette",
+      eyebrow: "Collezione Autunno — 64 silhouette",
       title1: "Il look intero,",
       title2: "non solo il capo.",
       lede: "Ogni silhouette viene composta in piano, provata e poi proposta completa: sopra, sotto, scarpe e accessori. Tu scegli una taglia, noi spediamo l'insieme.",
       ctaCollection: "Vedi la collezione",
       ctaAtelier: "L'atelier",
       featured: "In evidenza",
-      sectionTitle: "Le 8 silhouette",
+      sectionTitle: "Le 64 silhouette",
       seeAll: "Vedi tutto →",
     },
 
@@ -485,18 +485,18 @@ const UI = {
 
     looks: {
       eyebrow: "Collezione completa",
-      title: "Otto silhouette, ognuna venduta come insieme",
-      lede: "Scorri ogni look per vedere tutte le viste prima di scegliere la taglia.",
+      title: "Sessantaquattro silhouette, complete o singole",
+      lede: "Scegli la tua silhouette, poi il sopra, il sotto, le scarpe — o l'insieme completo.",
     },
 
     atelier: {
       eyebrow: "L'atelier",
       title: "Una silhouette è riuscita solo quando non si può più togliere nulla",
-      lede: "Maison Flatlay non vende capi singoli: componiamo insiemi interi, dal sopra alle scarpe, e li documentiamo vista per vista perché nulla sia una sorpresa all'apertura del pacco.",
+      lede: "Maison Flatlay compone insiemi interi, dal sopra alle scarpe, e li documenta capo per capo. Prendi la silhouette completa, o solo ciò che ti manca.",
       steps: [
         { title: "Selezione", text: "Cerchiamo i capi uno a uno: materiali, tagli, patina, provenienza." },
         { title: "Messa in piano", text: "L'insieme è composto a terra finché le proporzioni non tornano." },
-        { title: "Fotografia", text: "Sette viste per silhouette: insieme, dettagli, texture, accessori." },
+        { title: "Fotografia", text: "Ogni silhouette è fotografata in piano: taglio, materiali, accessori." },
         { title: "Spedizione", text: "Ogni capo è verificato, misurato, imballato e consegnato gratis in 7 giorni." },
       ],
       ctaTitle: "Pronto a scegliere la tua silhouette?",
