@@ -226,7 +226,7 @@ function lookCard(look) {
         <span class="price">${euro(look.price)}</span>
       </div>
       <p class="meta label-caps">${esc(T.card.meta)} · ${esc(lookColor(look.color))}</p>
-      <span class="buy label-caps" data-buy="${esc(look.slug)}">${esc(T.card.buy)}</span>
+      <span class="buy label-caps">${esc(T.card.buy)}</span>
     </a>`;
 }
 
@@ -548,14 +548,6 @@ navEl.addEventListener("change", (event) => {
 });
 
 app.addEventListener("click", (event) => {
-  // lien « Acheter » sur une carte : ouvre l'offre sans suivre le lien de la carte
-  const buy = event.target.closest("[data-buy]");
-  if (buy) {
-    event.preventDefault();
-    window.open(BUY_URL, "_blank", "noopener");
-    return;
-  }
-
   // « voir plus » sur la collection : on ajoute un palier sans re-rendre la page,
   // pour ne pas renvoyer le visiteur en haut de la grille.
   const more = event.target.closest("[data-load-more]");
