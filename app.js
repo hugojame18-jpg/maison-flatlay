@@ -225,6 +225,7 @@ function lookCard(look) {
   return `
     <a href="#/looks/${esc(look.slug)}" class="look-card">
       <div class="frame">
+        ${look.isNew ? `<span class="badge-new label-caps">${esc(T.card.isNew)}</span>` : ""}
         <img src="${img(look.images[0])}" alt="${esc(T.card.altPrefix)} ${esc(look.name)}" width="900" height="1612" loading="lazy" decoding="async" />
       </div>
       <div class="row">
@@ -442,22 +443,33 @@ function pageLook(slug) {
           <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
           <a href="#/panier" class="view-cart label-caps">${esc(T.detail.viewCart)}</a>
 
-          <div class="pieces">
-            <p class="label-caps muted">${esc(T.detail.pieces)}</p>
-            <ul>
-              ${look.pieces
-                .map(
-                  (p) =>
-                    `<li${p === bag ? ' data-bag-item' : ""}><span>—</span>${esc(lookPiece(p))}</li>`
-                )
-                .join("")}
-            </ul>
+          <div class="accordion">
+            <details class="accordion-item" open>
+              <summary>${esc(T.detail.pieces)}</summary>
+              <ul class="pieces-list">
+                ${look.pieces
+                  .map(
+                    (p) =>
+                      `<li${p === bag ? ' data-bag-item' : ""}><span>—</span>${esc(lookPiece(p))}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </details>
+            <details class="accordion-item">
+              <summary>${esc(T.detail.shippingInfo)}</summary>
+              <ul class="accordion-list">
+                <li><strong>${esc(T.promo.shipping.title)}</strong> — ${esc(T.promo.shipping.text)}</li>
+                <li><strong>${esc(T.promo.delivery.title)}</strong> — ${esc(T.promo.delivery.text)}</li>
+                <li><strong>${esc(T.promo.returns.title)}</strong> — ${esc(T.promo.returns.text)}</li>
+              </ul>
+            </details>
           </div>
 
         </div>
       </div>
 
       <section class="related">
+        <p class="label-caps muted">${esc(T.detail.relatedEyebrow)}</p>
         <h2>${esc(T.detail.related)}</h2>
         <div class="grid-looks">${others.map(lookCard).join("")}</div>
       </section>

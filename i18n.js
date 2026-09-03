@@ -78,7 +78,7 @@ const UI = {
       imageAlt: "Détail de la silhouette",
     },
 
-    card: { meta: "Silhouette complète", buy: "Acheter →", altPrefix: "Look" },
+    card: { meta: "Silhouette complète", buy: "Acheter →", altPrefix: "Look", isNew: "Nouveau" },
 
     detail: {
       back: "← Collection",
@@ -90,8 +90,10 @@ const UI = {
       addToCart: "Ajouter au panier",
       viewCart: "Voir le panier",
       pieces: "Pièces incluses",
+      shippingInfo: "Livraison & retours",
       shipping: "Livraison gratuite · Livré en 7 jours · Retours sous 14 jours",
-      related: "Autres silhouettes",
+      relatedEyebrow: "Compléter la silhouette",
+      related: "Vous pourriez aussi aimer",
       added: "Silhouette ajoutée au panier",
       replaced: "Silhouette remplacée — une seule par commande",
       oneMax: "Une silhouette par commande",
@@ -194,7 +196,7 @@ const UI = {
       imageAlt: "Detail of the silhouette",
     },
 
-    card: { meta: "Complete silhouette", buy: "Buy →", altPrefix: "Look" },
+    card: { meta: "Complete silhouette", buy: "Buy →", altPrefix: "Look", isNew: "New" },
 
     detail: {
       back: "← Collection",
@@ -206,8 +208,10 @@ const UI = {
       addToCart: "Add to cart",
       viewCart: "View cart",
       pieces: "Pieces included",
+      shippingInfo: "Shipping & returns",
       shipping: "Free shipping · Delivered in 7 days · 14-day returns",
-      related: "Other silhouettes",
+      relatedEyebrow: "Complete the look",
+      related: "You may also like",
       added: "Silhouette added to cart",
       replaced: "Silhouette replaced — one per order",
       oneMax: "One silhouette per order",
@@ -310,7 +314,7 @@ const UI = {
       imageAlt: "Detalle de la silueta",
     },
 
-    card: { meta: "Silueta completa", buy: "Comprar →", altPrefix: "Look" },
+    card: { meta: "Silueta completa", buy: "Comprar →", altPrefix: "Look", isNew: "Nuevo" },
 
     detail: {
       back: "← Colección",
@@ -322,8 +326,10 @@ const UI = {
       addToCart: "Añadir a la cesta",
       viewCart: "Ver la cesta",
       pieces: "Prendas incluidas",
+      shippingInfo: "Envío y devoluciones",
       shipping: "Envío gratuito · Entrega en 7 días · Devoluciones en 14 días",
-      related: "Otras siluetas",
+      relatedEyebrow: "Completa la silueta",
+      related: "También te puede gustar",
       added: "Silueta añadida a la cesta",
       replaced: "Silueta sustituida — una por pedido",
       oneMax: "Una silueta por pedido",
@@ -426,7 +432,7 @@ const UI = {
       imageAlt: "Detail der Silhouette",
     },
 
-    card: { meta: "Komplette Silhouette", buy: "Kaufen →", altPrefix: "Look" },
+    card: { meta: "Komplette Silhouette", buy: "Kaufen →", altPrefix: "Look", isNew: "Neu" },
 
     detail: {
       back: "← Kollektion",
@@ -438,8 +444,10 @@ const UI = {
       addToCart: "In den Warenkorb",
       viewCart: "Warenkorb ansehen",
       pieces: "Enthaltene Teile",
+      shippingInfo: "Versand & Rückgabe",
       shipping: "Kostenloser Versand · Lieferung in 7 Tagen · 14 Tage Rückgabe",
-      related: "Weitere Silhouetten",
+      relatedEyebrow: "Den Look vervollständigen",
+      related: "Das könnte Ihnen auch gefallen",
       added: "Silhouette in den Warenkorb gelegt",
       replaced: "Silhouette ersetzt — eine pro Bestellung",
       oneMax: "Eine Silhouette pro Bestellung",
@@ -547,7 +555,7 @@ const UI = {
       imageAlt: "Dettaglio della silhouette",
     },
 
-    card: { meta: "Silhouette completa", buy: "Acquista →", altPrefix: "Look" },
+    card: { meta: "Silhouette completa", buy: "Acquista →", altPrefix: "Look", isNew: "Nuovo" },
 
     detail: {
       back: "← Collezione",
@@ -559,8 +567,10 @@ const UI = {
       addToCart: "Aggiungi al carrello",
       viewCart: "Vedi il carrello",
       pieces: "Capi inclusi",
+      shippingInfo: "Spedizione e resi",
       shipping: "Spedizione gratuita · Consegna in 7 giorni · Resi entro 14 giorni",
-      related: "Altre silhouette",
+      relatedEyebrow: "Completa la silhouette",
+      related: "Potrebbe piacerti anche",
       added: "Silhouette aggiunta al carrello",
       replaced: "Silhouette sostituita — una per ordine",
       oneMax: "Una silhouette per ordine",
