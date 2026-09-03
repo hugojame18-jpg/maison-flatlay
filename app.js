@@ -79,6 +79,11 @@ function setLang(next) {
 
 const t = () => UI[lang];
 
+/* Sur téléphone la barre ne peut pas porter « Français » en toutes lettres :
+   le sélecteur passait à la ligne et faisait grandir le header. */
+const NARROW = window.matchMedia("(max-width: 639px)");
+const langLabel = (code, name) => (NARROW.matches ? code.toUpperCase() : name);
+
 /* Champs traduits d'un look : le français est la source. */
 function lookDesc(look) {
   const c = CATALOG[lang];
@@ -111,6 +116,15 @@ const CART_KEY = "maison-flatlay-cart";
 
 /* Une seule silhouette par commande : le panier ne contient jamais plus d'une ligne. */
 const CART_MAX = 1;
+
+/* La page d'accueil n'affiche qu'un aperçu : tout charger rendait la page
+   interminable et lourde sur mobile. Le reste vit sur /looks. */
+const HOME_LOOKS = 8;
+
+/* La collection se charge par paliers : les 93 silhouettes d'un coup
+   donnaient une page de 164 000 px sur téléphone. */
+const LOOKS_PAGE = 12;
+let looksShown = LOOKS_PAGE;
 
 function readCart() {
   try {
@@ -165,13 +179,13 @@ function renderChrome() {
 
   navEl.innerHTML = `
     <a href="#/looks" class="label-caps link">${esc(T.nav.collection)}</a>
-    <a href="#/atelier" class="label-caps link">${esc(T.nav.atelier)}</a>
+    <a href="#/atelier" class="label-caps link nav-atelier">${esc(T.nav.atelier)}</a>
     <a href="#/panier" class="btn-outline btn-sm">${esc(T.nav.cart)} (${readCart().length})</a>
     <label class="lang-picker">
       <span class="sr-only">${esc(T.langLabel)}</span>
       <select id="lang-select" class="label-caps" aria-label="${esc(T.langLabel)}">
         ${Object.entries(LANGS)
-          .map(([code, name]) => `<option value="${code}"${code === lang ? " selected" : ""}>${esc(name)}</option>`)
+          .map(([code, name]) => `<option value="${code}"${code === lang ? " selected" : ""}>${esc(langLabel(code, name))}</option>`)
           .join("")}
       </select>
     </label>`;
@@ -205,7 +219,7 @@ function lookCard(look) {
   return `
     <a href="#/looks/${esc(look.slug)}" class="look-card">
       <div class="frame">
-        <img src="${img(look.images[0])}" alt="${esc(T.card.altPrefix)} ${esc(look.name)}" loading="lazy" />
+        <img src="${img(look.images[0])}" alt="${esc(T.card.altPrefix)} ${esc(look.name)}" width="900" height="1612" loading="lazy" decoding="async" />
       </div>
       <div class="row">
         <h3>${esc(look.name)}</h3>
@@ -279,7 +293,7 @@ function pageHome() {
       </div>
       <a href="#/looks/${esc(featured.slug)}" class="hero-figure">
         <div class="frame">
-          <img src="${img(featured.images[0])}" alt="${esc(featured.name)}" />
+          <img src="${img(featured.images[0])}" alt="${esc(featured.name)}" width="900" height="1612" fetchpriority="high" decoding="async" />
         </div>
         <p class="caption label-caps">${esc(T.home.featured)} · ${esc(featured.name)}</p>
       </a>
@@ -294,7 +308,8 @@ function pageHome() {
         <h2>${esc(T.home.sectionTitle)}</h2>
         <a href="#/looks" class="label-caps">${esc(T.home.seeAll)}</a>
       </div>
-      <div class="grid-looks">${LOOKS.map(lookCard).join("")}</div>
+      <div class="grid-looks">${LOOKS.slice(0, HOME_LOOKS).map(lookCard).join("")}</div>
+      <a href="#/looks" class="btn-outline btn-block home-more">${esc(T.home.seeAllLong)}</a>
     </section>
 
     <section class="features">
@@ -320,7 +335,14 @@ function pageLooks() {
       <h1>${esc(T.looks.title)}</h1>
       <p>${esc(T.looks.lede)}</p>
       ${trustBar("band")}
-      <div class="grid-looks roomy">${LOOKS.map(lookCard).join("")}</div>
+      <div class="grid-looks roomy" data-grid>${LOOKS.slice(0, looksShown).map(lookCard).join("")}</div>
+      ${
+        looksShown < LOOKS.length
+          ? `<button type="button" class="btn-outline btn-block load-more" data-load-more>${esc(
+              T.looks.loadMore
+            )} (${LOOKS.length - looksShown})</button>`
+          : ""
+      }
     </div>`;
 }
 
@@ -350,7 +372,7 @@ function pageAtelier() {
         ${strip
           .map(
             (l) =>
-              `<img src="${img(l.images[0])}" alt="${esc(T.atelier.imageAlt)} ${esc(l.name)}" loading="lazy" />`
+              `<img src="${img(l.images[0])}" alt="${esc(T.atelier.imageAlt)} ${esc(l.name)}" width="900" height="1612" loading="lazy" decoding="async" />`
           )
           .join("")}
       </div>
@@ -375,7 +397,7 @@ function pageLook(slug) {
       <div class="detail-grid">
         <div class="detail-gallery">
           <div class="frame">
-            <img src="${img(look.images[0])}" alt="${esc(look.name)}" />
+            <img src="${img(look.images[0])}" alt="${esc(look.name)}" width="900" height="1612" fetchpriority="high" decoding="async" />
           </div>
         </div>
         <div class="detail-info">
@@ -418,6 +440,16 @@ function pageLook(slug) {
         <h2>${esc(T.detail.related)}</h2>
         <div class="grid-looks">${others.map(lookCard).join("")}</div>
       </section>
+
+      <!-- Barre d'achat fixe : sur mobile le bouton d'origine se trouve à plus
+           de deux écrans de scroll, on garde donc le prix et l'achat à portée. -->
+      <div class="buybar">
+        <div class="buybar-info">
+          <span class="buybar-name">${esc(look.name)}</span>
+          <span class="buybar-price js-detail-price">${euro(PRICES[3])}</span>
+        </div>
+        <a href="${BUY_URLS[3]}" target="_blank" rel="noopener noreferrer" class="btn-solid buybar-cta js-buy-link">${esc(T.detail.buyNow)}</a>
+      </div>
     </div>`;
 }
 
@@ -446,7 +478,7 @@ function pageCart() {
             const look = BY_SLUG[item.slug];
             return `
             <div class="cart-item">
-              <img src="${img(look.images[0])}" alt="${esc(look.name)}" />
+              <img src="${img(look.images[0])}" alt="${esc(look.name)}" width="900" height="1612" loading="lazy" decoding="async" />
               <div>
                 <h3>${esc(look.name)}</h3>
                 <p class="opts label-caps">${[
@@ -493,7 +525,10 @@ function renderPage() {
   const parts = path.split("/").filter(Boolean);
 
   if (parts.length === 0) return pageHome();
-  if (parts[0] === "looks" && parts.length === 1) return pageLooks();
+  if (parts[0] === "looks" && parts.length === 1) {
+    looksShown = LOOKS_PAGE; // on repart d'un palier propre à chaque visite
+    return pageLooks();
+  }
   if (parts[0] === "looks") return pageLook(decodeURIComponent(parts[1]));
   if (parts[0] === "atelier") return pageAtelier();
   if (parts[0] === "panier") return pageCart();
@@ -521,6 +556,20 @@ app.addEventListener("click", (event) => {
     return;
   }
 
+  // « voir plus » sur la collection : on ajoute un palier sans re-rendre la page,
+  // pour ne pas renvoyer le visiteur en haut de la grille.
+  const more = event.target.closest("[data-load-more]");
+  if (more) {
+    const grid = app.querySelector("[data-grid]");
+    const suite = LOOKS.slice(looksShown, looksShown + LOOKS_PAGE);
+    grid.insertAdjacentHTML("beforeend", suite.map(lookCard).join(""));
+    looksShown += suite.length;
+    const reste = LOOKS.length - looksShown;
+    if (reste > 0) more.textContent = `${t().looks.loadMore} (${reste})`;
+    else more.remove();
+    return;
+  }
+
   // toggle pièce (haut / bas / chaussures)
   const pieceBtn = event.target.closest("[data-piece]");
   if (pieceBtn) {
@@ -533,10 +582,9 @@ app.addEventListener("click", (event) => {
     const group = root.querySelector(`[data-piece-group="${pieceBtn.dataset.piece}"]`);
     if (group) group.hidden = wasPressed;
     const n = allBtns.filter((b) => b.getAttribute("aria-pressed") === "true").length;
-    const priceEl = root.querySelector(".js-detail-price");
-    if (priceEl) priceEl.textContent = euro(PRICES[n]);
-    const buyLink = root.querySelector(".js-buy-link");
-    if (buyLink) buyLink.href = BUY_URLS[n];
+    // le prix et le lien existent en double : dans la fiche et dans la barre fixe
+    root.querySelectorAll(".js-detail-price").forEach((el) => (el.textContent = euro(PRICES[n])));
+    root.querySelectorAll(".js-buy-link").forEach((el) => (el.href = BUY_URLS[n]));
     return;
   }
 
@@ -584,6 +632,9 @@ app.addEventListener("click", (event) => {
 });
 
 window.addEventListener("hashchange", () => renderAll());
+
+/* Le libellé de langue change de forme au passage téléphone / écran large. */
+NARROW.addEventListener("change", () => renderChrome());
 
 if (!location.hash) location.replace("#/");
 renderAll();

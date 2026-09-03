@@ -331,7 +331,86 @@ button { font: inherit; color: inherit; background: none; cursor: pointer; }
 .layout { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1; }
 
+/* Les attributs width/height des images réservent la place avant chargement,
+   mais le navigateur les traite comme une hauteur imposée : sans height:auto
+   ils écrasent les aspect-ratio définis plus haut. */
+.look-card img,
+.hero-figure img,
+.atelier-strip img,
+.detail-gallery img,
+.cart-item img {
+  height: auto;
+}
+
+/* ---------- barre d'achat fixe (mobile) ----------
+   Sur téléphone le bouton d'achat de la fiche se trouve à plus de deux écrans
+   de scroll. Cette barre garde le prix et l'achat accessibles en permanence. */
+.buybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.625rem 1rem calc(0.625rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--background) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+.buybar-info { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+.buybar-name {
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.buybar-price { font-size: 1.0625rem; font-weight: 500; }
+.buybar-cta { flex: 1; padding-block: 0.9375rem; white-space: nowrap; }
+
+/* La barre flotte au-dessus du contenu : on libère la hauteur en bas de fiche. */
+.detail { padding-bottom: 5.5rem; }
+
+/* Bouton « voir toute la collection » sous l'aperçu de l'accueil */
+.home-more { margin-top: 2rem; }
+
+/* Chargement par paliers sur la collection */
+.load-more { margin-top: 2.5rem; }
+
 /* ---------- responsive ---------- */
+
+/* Téléphone : le header passait sur trois lignes et mangeait un cinquième
+   de l'écran avant le moindre produit. */
+@media (max-width: 639px) {
+  .announce { padding: 0.6rem 1rem; font-size: 0.6875rem; }
+  /* Tout doit tenir sur une seule ligne à 375 px, sinon le header double. */
+  .site-header .bar { gap: 0.5rem; padding-block: 0.75rem; }
+  .brand { font-size: 0.9375rem; white-space: nowrap; }
+  .site-header nav { gap: 0.5rem; flex-wrap: nowrap; }
+  .site-header nav a.link { font-size: 0.5625rem; white-space: nowrap; }
+  .site-header .btn-sm { padding: 0.4rem 0.55rem; font-size: 0.5625rem; white-space: nowrap; }
+  .lang-picker select { padding: 0.4rem 1.25rem 0.4rem 0.5rem; font-size: 0.625rem; }
+  /* L'atelier raconte la marque mais ne vend pas : il reste au pied de page. */
+  .nav-atelier { display: none; }
+
+  /* Zones tactiles : les puces de taille étaient trop petites pour le pouce. */
+  .size-options button { min-width: 3.25rem; padding: 0.6875rem 0.875rem; font-size: 0.9375rem; }
+  .piece-btn { padding: 0.6875rem 1rem; font-size: 0.9375rem; }
+
+  .hero { padding-block: 2.5rem; gap: 2rem; }
+  .hero h1 { font-size: 2.5rem; }
+  .hero .actions { flex-direction: column; }
+  .hero .actions a { width: 100%; }
+}
+
+/* Au-delà du téléphone, le bouton d'achat de la fiche est déjà visible. */
+@media (min-width: 640px) {
+  .buybar { display: none; }
+  .detail { padding-bottom: 0; }
+}
+
 @media (min-width: 640px) {
   .grid-looks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .features .inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }

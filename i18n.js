@@ -32,12 +32,13 @@ const UI = {
       eyebrow: "Collection Automne — 93 silhouettes",
       title1: "Le look entier,",
       title2: "pas juste la pièce.",
-      lede: "Chaque silhouette est composée à plat, testée, puis proposée complète : haut, bas, chaussures et accessoires. Vous choisissez une taille, nous envoyons l'ensemble.",
+      lede: "Chaque silhouette est composée à plat, testée, puis photographiée entière. Prenez la tenue complète à 79,99 €, deux pièces à 49,99 €, ou une seule à 20 €.",
       ctaCollection: "Voir la collection",
       ctaAtelier: "L'atelier",
       featured: "En vedette",
-      sectionTitle: "Les 93 silhouettes",
+      sectionTitle: "Un aperçu de la collection",
       seeAll: "Tout voir →",
+      seeAllLong: "Voir les 93 silhouettes",
     },
 
     features: [
@@ -59,6 +60,7 @@ const UI = {
       eyebrow: "Collection complète",
       title: "Quatre-vingt-treize silhouettes, en ensemble ou à la pièce",
       lede: "Choisissez votre silhouette, puis le haut, le bas, les chaussures — ou l'ensemble complet.",
+      loadMore: "Voir plus de silhouettes",
     },
 
     atelier: {
@@ -150,12 +152,13 @@ const UI = {
       eyebrow: "Autumn Collection — 93 silhouettes",
       title1: "The whole look,",
       title2: "not just the piece.",
-      lede: "Every silhouette is laid out flat, tested, then offered complete: top, bottom, shoes and accessories. You pick a size, we ship the entire outfit.",
+      lede: "Every silhouette is laid out flat, tested, then shot whole. Take the full outfit at €79.99, two pieces at €49.99, or a single one at €20.",
       ctaCollection: "View the collection",
       ctaAtelier: "The atelier",
       featured: "Featured",
-      sectionTitle: "The 93 silhouettes",
+      sectionTitle: "A look at the collection",
       seeAll: "See all →",
+      seeAllLong: "View all 93 silhouettes",
     },
 
     features: [
@@ -171,6 +174,7 @@ const UI = {
       eyebrow: "Full collection",
       title: "Ninety-three silhouettes, as a full set or by the piece",
       lede: "Pick your silhouette, then the top, the bottom, the shoes — or the complete outfit.",
+      loadMore: "Show more silhouettes",
     },
 
     atelier: {
@@ -262,12 +266,13 @@ const UI = {
       eyebrow: "Colección Otoño — 93 siluetas",
       title1: "El look entero,",
       title2: "no solo la prenda.",
-      lede: "Cada silueta se compone en plano, se prueba y luego se ofrece completa: parte de arriba, parte de abajo, calzado y accesorios. Tú eliges una talla, nosotros enviamos el conjunto.",
+      lede: "Cada silueta se compone en plano, se prueba y se fotografía entera. Llévate el conjunto completo por 79,99 €, dos piezas por 49,99 €, o una sola por 20 €.",
       ctaCollection: "Ver la colección",
       ctaAtelier: "El taller",
       featured: "Destacado",
-      sectionTitle: "Las 93 siluetas",
+      sectionTitle: "Un vistazo a la colección",
       seeAll: "Ver todo →",
+      seeAllLong: "Ver las 93 siluetas",
     },
 
     features: [
@@ -283,6 +288,7 @@ const UI = {
       eyebrow: "Colección completa",
       title: "Noventa y tres siluetas, en conjunto o por piezas",
       lede: "Elige tu silueta y luego la parte de arriba, la de abajo, el calzado — o el conjunto completo.",
+      loadMore: "Ver más siluetas",
     },
 
     atelier: {
@@ -374,12 +380,13 @@ const UI = {
       eyebrow: "Herbstkollektion — 93 Silhouetten",
       title1: "Der ganze Look,",
       title2: "nicht nur das Teil.",
-      lede: "Jede Silhouette wird flach gelegt, geprüft und dann komplett angeboten: Oberteil, Hose, Schuhe und Accessoires. Sie wählen eine Größe, wir schicken das gesamte Outfit.",
+      lede: "Jede Silhouette wird flach gelegt, geprüft und ganz fotografiert. Nehmen Sie das komplette Outfit für 79,99 €, zwei Teile für 49,99 € oder ein einzelnes für 20 €.",
       ctaCollection: "Kollektion ansehen",
       ctaAtelier: "Das Atelier",
       featured: "Im Fokus",
-      sectionTitle: "Die 93 Silhouetten",
+      sectionTitle: "Ein Blick in die Kollektion",
       seeAll: "Alle ansehen →",
+      seeAllLong: "Alle 93 Silhouetten ansehen",
     },
 
     features: [
@@ -395,6 +402,7 @@ const UI = {
       eyebrow: "Gesamte Kollektion",
       title: "Dreiundneunzig Silhouetten, komplett oder einzeln",
       lede: "Wählen Sie Ihre Silhouette, dann Oberteil, Hose, Schuhe — oder das komplette Outfit.",
+      loadMore: "Mehr Silhouetten anzeigen",
     },
 
     atelier: {
@@ -491,12 +499,13 @@ const UI = {
       eyebrow: "Collezione Autunno — 93 silhouette",
       title1: "Il look intero,",
       title2: "non solo il capo.",
-      lede: "Ogni silhouette viene composta in piano, provata e poi proposta completa: sopra, sotto, scarpe e accessori. Tu scegli una taglia, noi spediamo l'insieme.",
+      lede: "Ogni silhouette viene composta in piano, provata e fotografata intera. Prendi l'insieme completo a 79,99 €, due capi a 49,99 €, o uno solo a 20 €.",
       ctaCollection: "Vedi la collezione",
       ctaAtelier: "L'atelier",
       featured: "In evidenza",
-      sectionTitle: "Le 93 silhouette",
+      sectionTitle: "Uno sguardo alla collezione",
       seeAll: "Vedi tutto →",
+      seeAllLong: "Vedi le 93 silhouette",
     },
 
     features: [
@@ -512,6 +521,7 @@ const UI = {
       eyebrow: "Collezione completa",
       title: "Novantatré silhouette, complete o singole",
       lede: "Scegli la tua silhouette, poi il sopra, il sotto, le scarpe — o l'insieme completo.",
+      loadMore: "Mostra altre silhouette",
     },
 
     atelier: {
