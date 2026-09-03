@@ -96,6 +96,12 @@ function lookPiece(piece) {
 function lookColor(color) {
   return (COLORS[lang] && COLORS[lang][color]) || color;
 }
+/* La sacoche n'existe que sur certains looks et ne fait pas partie des
+   3 pièces tarifées (haut / bas / chaussures) : c'est une préférence
+   d'affichage, pas un palier de prix. */
+function bagPiece(look) {
+  return look.pieces.find((p) => /^Sacoche/i.test(p));
+}
 
 const euro = (n) =>
   new Intl.NumberFormat(LOCALES[lang] || "fr-FR", {
@@ -390,6 +396,7 @@ function pageLook(slug) {
 
   const T = t();
   const others = LOOKS.filter((l) => l.slug !== slug).slice(0, 3);
+  const bag = bagPiece(look);
 
   return `
     <div class="wrap detail" data-slug="${esc(look.slug)}">
@@ -421,6 +428,15 @@ function pageLook(slug) {
           <div data-piece-group="bas">${sizeGroup(T.detail.sizeBottom, SIZES_TOP, "bas", "M")}</div>
           <div data-piece-group="chaussures">${sizeGroup(T.detail.shoeSize, SIZES_SHOE, "chaussures", "42")}</div>
 
+          ${
+            bag
+              ? `<label class="bag-toggle">
+                  <input type="checkbox" data-bag-toggle checked />
+                  ${esc(T.detail.withBag)} — ${esc(lookPiece(bag))}
+                </label>`
+              : ""
+          }
+
           <a href="${BUY_URLS[3]}" target="_blank" rel="noopener noreferrer" class="btn-solid btn-block js-buy-link">${esc(T.detail.buyNow)}</a>
           <button type="button" class="btn-outline btn-block" data-add-to-cart>${esc(T.detail.addToCart)}</button>
           <p class="one-max label-caps">${esc(T.detail.oneMax)}</p>
@@ -429,7 +445,12 @@ function pageLook(slug) {
           <div class="pieces">
             <p class="label-caps muted">${esc(T.detail.pieces)}</p>
             <ul>
-              ${look.pieces.map((p) => `<li><span>—</span>${esc(lookPiece(p))}</li>`).join("")}
+              ${look.pieces
+                .map(
+                  (p) =>
+                    `<li${p === bag ? ' data-bag-item' : ""}><span>—</span>${esc(lookPiece(p))}</li>`
+                )
+                .join("")}
             </ul>
           </div>
 
@@ -485,6 +506,7 @@ function pageCart() {
                   item.haut ? `${esc(T.cart.top)} ${esc(item.haut)}` : "",
                   item.bas ? `${esc(T.cart.bottom)} ${esc(item.bas)}` : "",
                   item.chaussures ? `${esc(T.cart.shoes)} ${esc(item.chaussures)}` : "",
+                  item.bag ? esc(T.cart.bag) : "",
                 ].filter(Boolean).join(" · ")}</p>
               </div>
               <div class="right">
@@ -547,6 +569,14 @@ navEl.addEventListener("change", (event) => {
   if (event.target.id === "lang-select") setLang(event.target.value);
 });
 
+app.addEventListener("change", (event) => {
+  // inclure ou non la sacoche : simple préférence d'affichage, sans effet sur le prix
+  if (event.target.matches("[data-bag-toggle]")) {
+    const item = app.querySelector("[data-bag-item]");
+    if (item) item.hidden = !event.target.checked;
+  }
+});
+
 app.addEventListener("click", (event) => {
   // « voir plus » sur la collection : on ajoute un palier sans re-rendre la page,
   // pour ne pas renvoyer le visiteur en haut de la grille.
@@ -599,12 +629,14 @@ app.addEventListener("click", (event) => {
       const el = root.querySelector(`[data-size-group="${name}"] button[aria-pressed="true"]`);
       return el ? el.dataset.value : null;
     };
+    const bagToggle = root.querySelector("[data-bag-toggle]");
     const previous = readCart()[0];
     writeCart([{
       slug: root.dataset.slug,
       haut: pick("haut"),
       bas: pick("bas"),
       chaussures: pick("chaussures"),
+      bag: bagToggle ? bagToggle.checked : null,
       price: PRICES[n] || 79.99,
       buyUrl: BUY_URLS[n] || BUY_URL,
     }]);

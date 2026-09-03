@@ -96,6 +96,7 @@ const UI = {
       replaced: "Silhouette remplacée — une seule par commande",
       oneMax: "Une silhouette par commande",
       selectPieces: "Personnalisez votre commande",
+      withBag: "Avec la sacoche",
     },
 
     cart: {
@@ -106,6 +107,7 @@ const UI = {
       top: "Haut",
       bottom: "Bas",
       shoes: "Pointure",
+      bag: "Sacoche",
       remove: "Retirer",
       total: "Total",
       shipping: "Livraison gratuite · Livré en 7 jours · Retours sous 14 jours",
@@ -210,6 +212,7 @@ const UI = {
       replaced: "Silhouette replaced — one per order",
       oneMax: "One silhouette per order",
       selectPieces: "Customise your order",
+      withBag: "With the bag",
     },
 
     cart: {
@@ -220,6 +223,7 @@ const UI = {
       top: "Top",
       bottom: "Bottom",
       shoes: "Shoe size",
+      bag: "Bag",
       remove: "Remove",
       total: "Total",
       shipping: "Free shipping · Delivered in 7 days · 14-day returns",
@@ -324,6 +328,7 @@ const UI = {
       replaced: "Silueta sustituida — una por pedido",
       oneMax: "Una silueta por pedido",
       selectPieces: "Personaliza tu pedido",
+      withBag: "Con el bolso",
     },
 
     cart: {
@@ -334,6 +339,7 @@ const UI = {
       top: "Arriba",
       bottom: "Abajo",
       shoes: "Calzado",
+      bag: "Bolso",
       remove: "Quitar",
       total: "Total",
       shipping: "Envío gratuito · Entrega en 7 días · Devoluciones en 14 días",
@@ -438,6 +444,7 @@ const UI = {
       replaced: "Silhouette ersetzt — eine pro Bestellung",
       oneMax: "Eine Silhouette pro Bestellung",
       selectPieces: "Bestellung anpassen",
+      withBag: "Mit Tasche",
     },
 
     cart: {
@@ -448,6 +455,7 @@ const UI = {
       top: "Oben",
       bottom: "Unten",
       shoes: "Schuhgröße",
+      bag: "Tasche",
       remove: "Entfernen",
       total: "Gesamt",
       shipping: "Kostenloser Versand · Lieferung in 7 Tagen · 14 Tage Rückgabe",
@@ -557,6 +565,7 @@ const UI = {
       replaced: "Silhouette sostituita — una per ordine",
       oneMax: "Una silhouette per ordine",
       selectPieces: "Personalizza il tuo ordine",
+      withBag: "Con la borsa",
     },
 
     cart: {
@@ -567,6 +576,7 @@ const UI = {
       top: "Sopra",
       bottom: "Sotto",
       shoes: "Numero",
+      bag: "Borsa",
       remove: "Rimuovi",
       total: "Totale",
       shipping: "Spedizione gratuita · Consegna in 7 giorni · Resi entro 14 giorni",
