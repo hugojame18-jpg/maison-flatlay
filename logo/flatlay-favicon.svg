@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Flatlay">
   <title>Flatlay</title>
-  <rect width="64" height="64" rx="12" fill="#293e29" />
-  <g fill="#f9f7ef">
+  <rect width="64" height="64" rx="12" fill="#123260" />
+  <g fill="#f2f7fd">
     <rect x="14" y="15" width="36" height="8" rx="1.5" />
     <rect x="14" y="15" width="8" height="35" rx="1.5" />
     <rect x="14" y="29" width="25" height="8" rx="1.5" />
