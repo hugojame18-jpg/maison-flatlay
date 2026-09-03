@@ -286,24 +286,15 @@ function sizeGroup(label, values, name, selected) {
 
 function pageHome() {
   const T = t();
-  const featured = BY_SLUG["ivoire-cavalier"] || LOOKS[0];
   return `
-    <section class="wrap hero">
-      <div>
-        <p class="label-caps muted">${esc(T.home.eyebrow)}</p>
-        <h1>${esc(T.home.title1)}<br /><em>${esc(T.home.title2)}</em></h1>
-        <p class="lede">${esc(T.home.lede)}</p>
-        <div class="actions">
-          <a href="#/looks" class="btn-solid">${esc(T.home.ctaCollection)}</a>
-          <a href="#/atelier" class="btn-outline">${esc(T.home.ctaAtelier)}</a>
-        </div>
+    <section class="wrap hero hero-noimg">
+      <p class="label-caps muted">${esc(T.home.eyebrow)}</p>
+      <h1>${esc(T.home.title1)}<br /><em>${esc(T.home.title2)}</em></h1>
+      <p class="lede">${esc(T.home.lede)}</p>
+      <div class="actions">
+        <a href="#/looks" class="btn-solid">${esc(T.home.ctaCollection)}</a>
+        <a href="#/atelier" class="btn-outline">${esc(T.home.ctaAtelier)}</a>
       </div>
-      <a href="#/looks/${esc(featured.slug)}" class="hero-figure">
-        <div class="frame">
-          <img src="${img(featured.images[0])}" alt="${esc(featured.name)}" width="900" height="1612" fetchpriority="high" decoding="async" />
-        </div>
-        <p class="caption label-caps">${esc(T.home.featured)} · ${esc(featured.name)}</p>
-      </a>
     </section>
 
     <section class="trust-band-wrap">

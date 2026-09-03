@@ -188,6 +188,14 @@ button { font: inherit; color: inherit; background: none; cursor: pointer; }
 .hero-figure:hover img { transform: scale(1.03); }
 .hero-figure .caption { margin-top: 0.75rem; color: var(--muted-foreground); }
 
+/* Accueil sans photo de une : le texte seul, centré, largeur de lecture
+   confortable. .hero passe en grille 2 colonnes à partir de 768px pour
+   accueillir texte + image : ce variant n'a plus qu'un seul bloc, donc
+   on repasse en flux normal quel que soit l'écran. */
+.hero-noimg { display: block !important; max-width: 40rem; text-align: center; margin-inline: auto; }
+.hero-noimg .lede { margin-inline: auto; }
+.hero-noimg .actions { justify-content: center; }
+
 /* ---------- grids ---------- */
 .section { padding-block: 4rem; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
@@ -460,6 +468,9 @@ main { flex: 1; }
   .hero h1 { font-size: 2.5rem; }
   .hero .actions { flex-direction: column; }
   .hero .actions a { width: 100%; }
+  /* La photo de une prenait plus de la moitié de l'écran avant le moindre
+     texte : on la recadre en format plus large et on plafonne sa hauteur. */
+  .hero-figure img { aspect-ratio: 1 / 1; max-height: 55vh; }
 
   /* Deux produits par ligne : les cartes en pleine largeur obligeaient à
      défiler bien plus longtemps pour parcourir le catalogue. */
